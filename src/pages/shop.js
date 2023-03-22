@@ -21,7 +21,7 @@ const ShopPage = ({ data }) => (
         {data.allShopifyProduct.edges.map(({ node }) => (
           <li key={node.shopifyId}>
             <h3>
-              <Link to={`/products/${node.handle}`}>{node.title}</Link>
+              <Link to={`/shop/${node.handle}`}>{node.title}</Link>
               {" - "}${node.priceRangeV2.minVariantPrice.amount}
             </h3>
             <p>{node.description}</p>
