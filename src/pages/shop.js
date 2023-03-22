@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link, graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 
@@ -12,14 +13,43 @@ export const Head = () => (
   </>
 );
 
-const ShopPage = () => {
-  return (
-    <>
-      <Layout>
-        <h1>Shop</h1>
-      </Layout>
-    </>
-  );
-};
+const ShopPage = ({ data }) => (
+  <>
+    <Layout>
+      <h1>Shop</h1>
+      <ul>
+        {data.allShopifyProduct.edges.map(({ node }) => (
+          <li key={node.shopifyId}>
+            <h3>
+              <Link to={`/products/${node.handle}`}>{node.title}</Link>
+              {" - "}${node.priceRangeV2.minVariantPrice.amount}
+            </h3>
+            <p>{node.description}</p>
+          </li>
+        ))}
+      </ul>
+    </Layout>
+  </>
+);
 
 export default ShopPage;
+
+export const query = graphql`
+  {
+    allShopifyProduct(sort: { title: ASC }) {
+      edges {
+        node {
+          title
+          shopifyId
+          description
+          handle
+          priceRangeV2 {
+            minVariantPrice {
+              amount
+            }
+          }
+        }
+      }
+    }
+  }
+`;
