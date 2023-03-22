@@ -1,0 +1,56 @@
+.open-icon::before {
+  background-color: var(--nav-menu-open-icon-color);
+
+  content: '';
+
+  display: block;
+
+  height: 6.4px;
+  width: 100%;
+
+  position: relative;
+  bottom: 12.8px;
+}
+
+.open-icon {
+  background-color: var(--nav-menu-open-icon-color);
+
+  height: 6.4px;
+  width: 100%;
+}
+
+.open-icon::after {
+  background-color: var(--nav-menu-open-icon-color);
+
+  content: '';
+
+  display: block;
+
+  height: 6.4px;
+  width: 100%;
+
+  position: relative;
+  top: 6.4px;
+}
+
+.close-icon {
+  background-color: var(--nav-menu-close-icon-color);
+
+  height: 6.4px;
+  width: 100%;
+
+  transform: rotate(45deg);
+}
+
+.close-icon::after {
+  background-color: var(--nav-menu-close-icon-color);
+
+  content: '';
+
+  display: block;
+
+  height: 6.4px;
+  width: 100%;
+
+  transform: rotate(90deg);
+}
