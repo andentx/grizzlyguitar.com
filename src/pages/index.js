@@ -1,14 +1,25 @@
 import * as React from "react";
 
+import Layout from "../components/Layout";
+
+export const Head = () => (
+  <>
+    <title>Grizzly Guitar</title>
+    <meta name='description' content='Description for Grizzly Guitar.' />
+    <meta name='author' content='Andrew' />
+
+    <meta name='theme-color' content='hsl(0, 0%, 0%)' />
+  </>
+);
+
 const IndexPage = () => {
   return (
     <>
-      <h1>index page</h1>
-      <a href='/products'>products</a>
+      <Layout>
+        <h1>Grizzly Guitar</h1>
+      </Layout>
     </>
   );
 };
 
 export default IndexPage;
-
-export const Head = () => <title>Home Page</title>;
