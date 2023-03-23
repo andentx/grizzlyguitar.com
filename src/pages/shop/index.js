@@ -3,6 +3,8 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../../components/Layout";
 
+import styled from "styled-components";
+
 export const Head = () => (
   <>
     <title>Grizzly Guitar | Shop</title>
@@ -13,21 +15,46 @@ export const Head = () => (
   </>
 );
 
+const ProductCard = styled.div`
+  background-color: darkgoldenrod;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  padding: 1rem;
+
+  margin: 1rem;
+
+  * {
+    margin-bottom: 1rem;
+  }
+
+  img {
+    width: 250px;
+    height: 250px;
+  }
+`;
+
 const ShopPage = ({ data }) => (
   <>
     <Layout>
       <h1>Shop</h1>
-      <ul>
+      <div>
         {data.allShopifyProduct.edges.map(({ node }) => (
-          <li key={node.shopifyId}>
-            <h3>
-              <Link to={`/shop/${node.handle}`}>{node.title}</Link>
-              {" - "}${node.priceRangeV2.minVariantPrice.amount}
-            </h3>
-            <p>{node.description}</p>
-          </li>
+          <ProductCard key={node.shopifyId}>
+            <Link to={`/shop/${node.handle}`}>
+              <img src={node.media[0].image.src} />
+              <h3>
+                {node.title}
+                {" - "}${node.priceRangeV2.minVariantPrice.amount}
+              </h3>
+              <p>{node.description}</p>
+            </Link>
+          </ProductCard>
         ))}
-      </ul>
+      </div>
     </Layout>
   </>
 );
@@ -42,6 +69,14 @@ export const query = graphql`
           title
           shopifyId
           description
+          media {
+            ... on ShopifyMediaImage {
+              id
+              image {
+                src
+              }
+            }
+          }
           handle
           priceRangeV2 {
             minVariantPrice {
