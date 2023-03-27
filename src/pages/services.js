@@ -17,6 +17,7 @@ const ServicesPage = () => {
     <>
       <Layout>
         <h1>Services</h1>
+        <h2>Services section</h2>
       </Layout>
     </>
   );

@@ -17,6 +17,7 @@ const ContactPage = () => {
     <>
       <Layout>
         <h1>Contact</h1>
+        <h2>Contact section</h2>
       </Layout>
     </>
   );

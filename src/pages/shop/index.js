@@ -15,6 +15,8 @@ export const Head = () => (
   </>
 );
 
+const ProductGrid = styled.div``;
+
 const ProductCard = styled.div`
   background-color: darkgoldenrod;
 
@@ -41,7 +43,10 @@ const ShopPage = ({ data }) => (
   <>
     <Layout>
       <h1>Shop</h1>
-      <div>
+      <h2>top photo</h2>
+      <h2>Category list section</h2>
+      <h2>Filter and sort section</h2>
+      <ProductGrid>
         {data.allShopifyProduct.edges.map(({ node }) => (
           <ProductCard key={node.shopifyId}>
             <Link to={`/shop/${node.handle}`}>
@@ -54,7 +59,7 @@ const ShopPage = ({ data }) => (
             </Link>
           </ProductCard>
         ))}
-      </div>
+      </ProductGrid>
     </Layout>
   </>
 );

@@ -17,6 +17,9 @@ const AboutPage = () => {
     <>
       <Layout>
         <h1>About</h1>
+        <h2>About section</h2>
+        <h2>FAQ section</h2>
+        <h2>Contact section</h2>
       </Layout>
     </>
   );

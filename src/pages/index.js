@@ -17,6 +17,11 @@ const IndexPage = () => {
     <>
       <Layout>
         <h1>Grizzly Guitar</h1>
+        <h2>Top Photo</h2>
+        <h2>About Section</h2>
+        <h2>Services Section</h2>
+        <h2>Featured Items Section</h2>
+        <h2></h2>
       </Layout>
     </>
   );
