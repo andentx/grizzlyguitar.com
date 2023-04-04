@@ -1,6 +1,7 @@
 import * as React from "react";
 
 import Layout from "../components/Layout";
+import TopPhoto from "../components/TopPhoto";
 
 export const Head = () => (
   <>
@@ -16,8 +17,7 @@ const IndexPage = () => {
   return (
     <>
       <Layout>
-        <h1>Grizzly Guitar</h1>
-        <h2>Top Photo</h2>
+        <TopPhoto />
         <h2>About Section</h2>
         <h2>Services Section</h2>
         <h2>Featured Items Section</h2>
