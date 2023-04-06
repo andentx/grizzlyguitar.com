@@ -65,6 +65,19 @@ const ProductFilter = ({ sort, onSortChange, onFilterChange }) => {
     onFilterChange(selectedCategories, selectedPriceRanges);
   };
 
+  const categoryOptions = [
+    { name: "Guitar Amp", label: "Guitar Amps", value: "amps" },
+    { name: "Guitar Pedal", label: "Guitar Pedals", value: "guitarPedals" },
+    { name: "Electric Guitar", label: "Electric Guitars", value: "electricGuitars" },
+  ];
+
+  const priceRangeOptions = [
+    { name: "1-25", label: "$1-25", value: "1-25" },
+    { name: "26-50", label: "$26-50", value: "26-50" },
+    { name: "51-100", label: "$51-100", value: "51-100" },
+    { name: "101+", label: "$100+", value: "100+" },
+  ];
+
   return (
     <ProductFilterContainer>
       <SortSection>
@@ -81,37 +94,21 @@ const ProductFilter = ({ sort, onSortChange, onFilterChange }) => {
         <form onSubmit={handleSubmit}>
           <div>
             <h3>Categories</h3>
-            <label>
-              <input type="checkbox" name="Guitar Amp" checked={categories.amps} onChange={handleCategoryChange} />
-              Guitar Amps
-            </label>
-            <label>
-              <input type="checkbox" name="Guitar Pedal" checked={categories.guitarPedals} onChange={handleCategoryChange} />
-              Guitar Pedals
-            </label>
-            <label>
-              <input type="checkbox" name="Electric Guitar" checked={categories.electricGuitars} onChange={handleCategoryChange} />
-              Electric Guitars
-            </label>
+            {categoryOptions.map((option) => (
+              <label key={option.name}>
+                <input type="checkbox" name={option.name} checked={categories[option.value]} onChange={handleCategoryChange} />
+                {option.label}
+              </label>
+            ))}
           </div>
           <div>
             <h3>Price Range</h3>
-            <label>
-              <input type="checkbox" name="1-25" checked={priceRanges["1-25"]} onChange={handlePriceRangeChange} />
-              $1-25
-            </label>
-            <label>
-              <input type="checkbox" name="26-50" checked={priceRanges["26-50"]} onChange={handlePriceRangeChange} />
-              $26-50
-            </label>
-            <label>
-              <input type="checkbox" name="51-100" checked={priceRanges["51-100"]} onChange={handlePriceRangeChange} />
-              $51-100
-            </label>
-            <label>
-              <input type="checkbox" name="101+" checked={priceRanges["100+"]} onChange={handlePriceRangeChange} />
-              $100+
-            </label>
+            {priceRangeOptions.map((option) => (
+              <label key={option.name}>
+                <input type="checkbox" name={option.name} checked={priceRanges[option.value]} onChange={handlePriceRangeChange} />
+                {option.label}
+              </label>
+            ))}
           </div>
           <button type="submit">Apply Filters</button>
         </form>
