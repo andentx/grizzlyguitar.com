@@ -1,68 +1,107 @@
 import * as React from "react";
-import { Link, graphql } from "gatsby";
+import { useState } from "react";
+import { graphql } from "gatsby";
 
 import Layout from "../../components/Layout";
 
-import styled from "styled-components";
+import ProductFilter from "../../components/ProductFilter";
+import ProductGrid from "../../components/ProductGrid";
 
 export const Head = () => (
   <>
     <title>Grizzly Guitar | Shop</title>
-    <meta name='description' content='Description for Grizzly Guitar.' />
-    <meta name='author' content='Andrew' />
+    <meta name="description" content="Description for Grizzly Guitar." />
+    <meta name="author" content="Andrew" />
 
-    <meta name='theme-color' content='hsl(0, 0%, 0%)' />
+    <meta name="theme-color" content="hsl(0, 0%, 0%)" />
   </>
 );
 
-const ProductGrid = styled.div``;
+const sortByPriceAsc = (a, b) => a.priceRangeV2.minVariantPrice.amount - b.priceRangeV2.minVariantPrice.amount;
+const sortByPriceDesc = (a, b) => b.priceRangeV2.minVariantPrice.amount - a.priceRangeV2.minVariantPrice.amount;
+const sortByNameAsc = (a, b) => a.title.localeCompare(b.title);
+const sortByNameDesc = (a, b) => b.title.localeCompare(a.title);
+const sortByCategoryAsc = (a, b) => a.category.localeCompare(b.category);
+const sortByCategoryDesc = (a, b) => b.category.localeCompare(a.category);
+const sortByPriceRangeAsc = (a, b) => a.priceRange.localeCompare(b.priceRange);
+const sortByPriceRangeDesc = (a, b) => b.priceRange.localeCompare(a.priceRange);
 
-const ProductCard = styled.div`
-  background-color: darkgoldenrod;
+const ShopPage = ({ data }) => {
+  const allProducts = data.allShopifyProduct.edges.map((edge) => {
+    const { node } = edge;
+    const price = node.priceRangeV2.minVariantPrice.amount;
+    const category = node.tags.filter((tag) => ["Guitar Amp", "Electric Guitar", "Guitar Pedal"].includes(tag))[0] || "other";
+    let priceRange;
 
-  display: flex;
-  flex-direction: column;
+    if (price <= 25) {
+      priceRange = "1-25";
+    } else if (price <= 50) {
+      priceRange = "26-50";
+    } else if (price <= 100) {
+      priceRange = "51-100";
+    } else {
+      priceRange = "101+";
+    }
 
-  align-items: center;
+    return {
+      ...node,
+      category,
+      priceRange,
+    };
+  });
 
-  padding: 1rem;
+  const [sortedProducts, setSortedProducts] = useState(allProducts);
+  const [sort, setSort] = useState("price_asc");
 
-  margin: 1rem;
+  const sortFunctions = {
+    price_asc: sortByPriceAsc,
+    price_desc: sortByPriceDesc,
+    name_asc: sortByNameAsc,
+    name_desc: sortByNameDesc,
+    category_asc: sortByCategoryAsc,
+    category_desc: sortByCategoryDesc,
+    price_range_asc: sortByPriceRangeAsc,
+    price_range_desc: sortByPriceRangeDesc,
+  };
 
-  * {
-    margin-bottom: 1rem;
-  }
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [selectedPriceRanges, setSelectedPriceRanges] = useState([]);
 
-  img {
-    width: 250px;
-    height: 250px;
-  }
-`;
+  const handleSortChange = (value) => {
+    setSort(value);
+    setSortedProducts(
+      [...allProducts].sort(sortFunctions[value]).filter((product) => {
+        const hasSelectedCategory = selectedCategories.length === 0 || selectedCategories.includes(product.category);
+        const hasSelectedPriceRange = selectedPriceRanges.length === 0 || selectedPriceRanges.includes(product.priceRange);
 
-const ShopPage = ({ data }) => (
-  <>
-    <Layout>
-      <h1>Shop</h1>
-      <h2>top photo</h2>
-      <h2>Category list section</h2>
-      <h2>Filter and sort section</h2>
-      <ProductGrid>
-        {data.allShopifyProduct.edges.map(({ node }) => (
-          <ProductCard key={node.shopifyId}>
-            <Link to={`/shop/${node.handle}`}>
-              <img src={node.media[0].image.src} />
-              <h3>
-                {node.title}
-                {" - "}${node.priceRangeV2.minVariantPrice.amount}
-              </h3>
-              <p>{node.description}</p>
-            </Link>
-          </ProductCard>
-        ))}
-      </ProductGrid>
-    </Layout>
-  </>
-);
+        return hasSelectedCategory && hasSelectedPriceRange;
+      })
+    );
+  };
+
+  const handleFilterChange = (categories, priceRanges) => {
+    setSelectedCategories(categories);
+    setSelectedPriceRanges(priceRanges);
+    setSortedProducts(
+      [...allProducts].filter((product) => {
+        const hasSelectedCategory = categories.length === 0 || categories.includes(product.category);
+        const hasSelectedPriceRange = priceRanges.length === 0 || priceRanges.includes(product.priceRange);
+
+        return hasSelectedCategory && hasSelectedPriceRange;
+      })
+    );
+  };
+
+  return (
+    <>
+      <Layout>
+        <h1>Shop</h1>
+        <ProductFilter sort={sort} onSortChange={handleSortChange} onFilterChange={handleFilterChange} />
+        <ProductGrid sortedProducts={sortedProducts} />
+      </Layout>
+    </>
+  );
+};
 
 export default ShopPage;
 
@@ -88,6 +127,7 @@ export const query = graphql`
               amount
             }
           }
+          tags
         }
       }
     }
