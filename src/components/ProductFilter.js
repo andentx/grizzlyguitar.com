@@ -42,10 +42,10 @@ const ProductFilter = ({ sort, onSortChange, onFilterChange }) => {
   });
 
   const [priceRanges, setPriceRanges] = useState({
-    "1-25": false,
-    "26-50": false,
-    "51-100": false,
-    "101-200": false,
+    "1-99": false,
+    "100-499": false,
+    "500-999": false,
+    "1000-2000": false,
   });
 
   const handleCategoryChange = (event) => {
@@ -72,10 +72,10 @@ const ProductFilter = ({ sort, onSortChange, onFilterChange }) => {
   ];
 
   const priceRangeOptions = [
-    { name: "1-25", label: "$1-25", value: "1-25" },
-    { name: "26-50", label: "$26-50", value: "26-50" },
-    { name: "51-100", label: "$51-100", value: "51-100" },
-    { name: "101+", label: "$100+", value: "100+" },
+    { name: "1-99", label: "$99", value: "1-99" },
+    { name: "100-499", label: "$100-499", value: "100-499" },
+    { name: "500-999", label: "$500-999", value: "500-999" },
+    { name: "1000+", label: "$1000+", value: "1000+" },
   ];
 
   return (

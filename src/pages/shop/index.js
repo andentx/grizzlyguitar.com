@@ -33,14 +33,14 @@ const ShopPage = ({ data }) => {
     const category = node.tags.filter((tag) => ["Guitar Amp", "Electric Guitar", "Guitar Pedal"].includes(tag))[0] || "other";
     let priceRange;
 
-    if (price <= 25) {
-      priceRange = "1-25";
-    } else if (price <= 50) {
-      priceRange = "26-50";
+    if (price <= 99) {
+      priceRange = "1-99";
     } else if (price <= 100) {
-      priceRange = "51-100";
+      priceRange = "100-499";
+    } else if (price <= 100) {
+      priceRange = "500-999";
     } else {
-      priceRange = "101+";
+      priceRange = "1000+";
     }
 
     return {
