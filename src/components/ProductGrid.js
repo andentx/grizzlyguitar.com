@@ -23,6 +23,9 @@ const ProductCard = styled.div`
 
   align-items: center;
 
+  width: 250px;
+  height: 400px;
+
   padding: 1rem;
 
   margin: 1rem;
@@ -48,8 +51,6 @@ const ProductGrid = ({ sortedProducts }) => {
               {product.title}
               {" - "}${product.priceRangeV2.minVariantPrice.amount}
             </h3>
-            <p>{product.description}</p>
-            <p>{product.category}</p>
           </Link>
         </ProductCard>
       ))}

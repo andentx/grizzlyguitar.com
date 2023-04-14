@@ -12,8 +12,7 @@ const ProductTemplate = ({ pageContext }) => {
         <h1>Product page</h1>
         <h2>{product.title}</h2>
         <img src={product.media[0].image.src} style={{ width: "250px" }}></img>
-        <p>price</p>
-        <div>{product.description}</div>
+        <div style={{ width: "400px" }}>{product.description}</div>
       </Layout>
     </>
   );
