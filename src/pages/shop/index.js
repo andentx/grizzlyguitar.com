@@ -35,9 +35,9 @@ const ShopPage = ({ data }) => {
 
     if (price <= 99) {
       priceRange = "1-99";
-    } else if (price <= 100) {
+    } else if (price <= 499) {
       priceRange = "100-499";
-    } else if (price <= 100) {
+    } else if (price <= 999) {
       priceRange = "500-999";
     } else {
       priceRange = "1000+";
