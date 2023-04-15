@@ -3,34 +3,97 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const ProductFilterContainer = styled.header`
-  background-color: #333;
+  background-color: darkred;
 
-  width: 80%;
+  width: 700px;
+
+  border: 3px solid antiquewhite;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
 `;
 
-const SortSection = styled.div`
-  background-color: grey;
-  display: flex;
+const ContainerTitle = styled.h2`
+  background-color: red;
+
+  text-align: center;
 
   padding: 1rem;
 
-  h2 {
-    margin-right: 1rem;
+  margin-bottom: 1rem;
+`;
+
+const Section = styled.div`
+  padding-top: 1rem;
+
+  background-color: grey;
+  color: black;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 400px;
+
+  border: 3px solid black;
+
+  margin-bottom: 1rem;
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
-const FilterSection = styled.div`
-  background-color: grey;
+const SortSection = styled.div`
+  background-color: pink;
+
+  width: 90%;
+
   display: flex;
+
+  border: 3px solid black;
+
+  justify-content: space-between;
 
   padding: 1rem;
 
-  h2 {
-    margin-right: 1rem;
+  margin-bottom: 1rem;
+`;
+
+const FilterSection = styled.div`
+  background-color: lightblue;
+
+  border: 3px solid black;
+
+  width: 90%;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  padding: 1rem;
+
+  margin-bottom: 1rem;
+`;
+
+const FilterTitle = styled.h2`
+  color: darkblue;
+  margin-bottom: 0.5rem;
+`;
+
+const FilterListSection = styled.div`
+  /* background-color: olivedrab; */
+
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 0.3rem;
   }
 `;
 
@@ -72,7 +135,7 @@ const ProductFilter = ({ sort, onSortChange, onFilterChange }) => {
   ];
 
   const priceRangeOptions = [
-    { name: "1-99", label: "$99", value: "1-99" },
+    { name: "1-99", label: "$1-99", value: "1-99" },
     { name: "100-499", label: "$100-499", value: "100-499" },
     { name: "500-999", label: "$500-999", value: "500-999" },
     { name: "1000+", label: "$1000+", value: "1000+" },
@@ -80,39 +143,45 @@ const ProductFilter = ({ sort, onSortChange, onFilterChange }) => {
 
   return (
     <ProductFilterContainer>
-      <SortSection>
-        <h2>Sort products:</h2>
-        <select value={sort} onChange={(e) => onSortChange(e.target.value)}>
-          <option value="price_asc">Price: Low to High</option>
-          <option value="price_desc">Price: High to Low</option>
-          <option value="name_asc">Name: A to Z</option>
-          <option value="name_desc">Name: Z to A</option>
-        </select>
-      </SortSection>
-      <FilterSection>
-        <h2>Filter products:</h2>
+      <ContainerTitle>Filter and Sort</ContainerTitle>
+      <Section>
+        <SortSection>
+          <h2>Sort products:</h2>
+          <select value={sort} onChange={(e) => onSortChange(e.target.value)}>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="name_asc">Name: A to Z</option>
+            <option value="name_desc">Name: Z to A</option>
+          </select>
+        </SortSection>
+      </Section>
+      <Section>
         <form onSubmit={handleSubmit}>
-          <div>
-            <h3>Categories</h3>
-            {categoryOptions.map((option) => (
-              <label key={option.name}>
-                <input type="checkbox" name={option.name} checked={categories[option.value]} onChange={handleCategoryChange} />
-                {option.label}
-              </label>
-            ))}
-          </div>
-          <div>
-            <h3>Price Range</h3>
-            {priceRangeOptions.map((option) => (
-              <label key={option.name}>
-                <input type="checkbox" name={option.name} checked={priceRanges[option.value]} onChange={handlePriceRangeChange} />
-                {option.label}
-              </label>
-            ))}
-          </div>
+          <FilterSection>
+            <FilterTitle>Categories</FilterTitle>
+            <FilterListSection>
+              {categoryOptions.map((option) => (
+                <label key={option.name}>
+                  <input type="checkbox" name={option.name} checked={categories[option.value]} onChange={handleCategoryChange} />
+                  {option.label}
+                </label>
+              ))}
+            </FilterListSection>
+          </FilterSection>
+          <FilterSection>
+            <FilterTitle>Price Range</FilterTitle>
+            <FilterListSection>
+              {priceRangeOptions.map((option) => (
+                <label key={option.name}>
+                  <input type="checkbox" name={option.name} checked={priceRanges[option.value]} onChange={handlePriceRangeChange} />
+                  {option.label}
+                </label>
+              ))}
+            </FilterListSection>
+          </FilterSection>
           <button type="submit">Apply Filters</button>
         </form>
-      </FilterSection>
+      </Section>
     </ProductFilterContainer>
   );
 };
