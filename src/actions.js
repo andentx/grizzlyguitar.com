@@ -1,0 +1,2 @@
+export const MOBILE_NAV_OPEN = "MOBILE_NAV_OPEN";
+export const MOBILE_NAV_CLOSE = "MOBILE_NAV_CLOSE";
