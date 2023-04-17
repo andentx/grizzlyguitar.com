@@ -97,6 +97,26 @@ const FilterListSection = styled.div`
   }
 `;
 
+const FilterButtonsSection = styled.div`
+  background-color: lightgreen;
+
+  border: 3px solid black;
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 90%;
+
+  padding: 1rem;
+
+  margin-bottom: 1rem;
+
+  button {
+    padding: 1rem;
+    border: 3px solid black;
+  }
+`;
+
 const ProductFilter = ({ sort, onSortChange, onFilterChange }) => {
   const [categories, setCategories] = useState({
     "Guitar Amp": false,
@@ -108,7 +128,7 @@ const ProductFilter = ({ sort, onSortChange, onFilterChange }) => {
     "1-99": false,
     "100-499": false,
     "500-999": false,
-    "1000-2000": false,
+    "1000+": false,
   });
 
   const handleCategoryChange = (event) => {
@@ -126,6 +146,20 @@ const ProductFilter = ({ sort, onSortChange, onFilterChange }) => {
     const selectedCategories = Object.keys(categories).filter((key) => categories[key]);
     const selectedPriceRanges = Object.keys(priceRanges).filter((key) => priceRanges[key]);
     onFilterChange(selectedCategories, selectedPriceRanges);
+  };
+
+  const handleClearFilters = () => {
+    setCategories({
+      amps: false,
+      guitarPedals: false,
+      electricGuitars: false,
+    });
+    setPriceRanges({
+      "1-99": false,
+      "100-499": false,
+      "500-999": false,
+      "1000+": false,
+    });
   };
 
   const categoryOptions = [
@@ -179,7 +213,10 @@ const ProductFilter = ({ sort, onSortChange, onFilterChange }) => {
               ))}
             </FilterListSection>
           </FilterSection>
-          <button type="submit">Apply Filters</button>
+          <FilterButtonsSection>
+            <button type="submit">Apply Filters</button>
+            <button onClick={handleClearFilters}>Clear all filters</button>
+          </FilterButtonsSection>
         </form>
       </Section>
     </ProductFilterContainer>
