@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
+import { useNavigationContext } from "../../context/navigation_context";
+
 import { navLinks } from "../../data/navLinks";
 
 import { Link } from "gatsby";
@@ -12,8 +14,8 @@ const Global = createGlobalStyle`
  @media screen and (max-width: 700px) {
      html,
      body {
-         max-height: ${({ isOpen }) => (isOpen ? "100vh" : "none")};
-         overflow-y: ${({ isOpen }) => (isOpen ? "hidden" : "auto")};
+         max-height: ${({ isMobileNavOpen }) => (isMobileNavOpen ? "100vh" : "none")};
+         overflow-y: ${({ isMobileNavOpen }) => (isMobileNavOpen ? "hidden" : "auto")};
      }
  }
  `;
@@ -204,8 +206,7 @@ const LinkPanel = styled.div`
 `;
 
 const PageNavigation = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const { isMobileNavOpen, closeMobileNavigation, openMobileNavigation } = useNavigationContext();
 
   const bodyElementsRef = useRef(null);
   const bodyElementsSelectorRef = useRef("main *, #headerLogo, footer *");
@@ -219,24 +220,24 @@ const PageNavigation = () => {
     if (bodyElementsRef.current) {
       const bodyElements = bodyElementsRef.current;
       bodyElements.forEach((element) => {
-        if (isOpen) {
+        if (isMobileNavOpen) {
           element.setAttribute("tabindex", "-1");
         } else {
           element.removeAttribute("tabindex");
         }
       });
     }
-  }, [isOpen]);
+  }, [isMobileNavOpen]);
 
   return (
     <>
-      <Global isOpen={isOpen} />
+      <Global isMobileNavOpen={isMobileNavOpen} />
 
-      <DesktopNavigation isOpen={isOpen}>
+      <DesktopNavigation isOpen={isMobileNavOpen}>
         <ul>
           {navLinks.map((link) => (
             <li key={link.id}>
-              <Link to={link.url} activeClassName='selected'>
+              <Link to={link.url} activeClassName="selected">
                 {link.text}
               </Link>
             </li>
@@ -244,17 +245,17 @@ const PageNavigation = () => {
         </ul>
       </DesktopNavigation>
 
-      <MobileNavigationMenuIcon onClick={toggleMenu} aria-label={`${isOpen ? "close navigation menu" : "open navigation menu"}`}>
-        <div className={`${isOpen ? closeIcon : openIcon}`}></div>
+      <MobileNavigationMenuIcon onClick={isMobileNavOpen ? closeMobileNavigation : openMobileNavigation} aria-label={`${isMobileNavOpen ? "close navigation menu" : "open navigation menu"}`}>
+        <div className={`${isMobileNavOpen ? closeIcon : openIcon}`}></div>
       </MobileNavigationMenuIcon>
 
-      <MobileNavigation isOpen={isOpen}>
-        <ClosePanel onClick={toggleMenu} />
+      <MobileNavigation isOpen={isMobileNavOpen}>
+        <ClosePanel onClick={closeMobileNavigation} />
         <LinkPanel>
           <ul>
             {navLinks.map((link) => (
               <li key={link.id}>
-                <Link to={link.url} onClick={toggleMenu} activeClassName='selected' tabIndex={isOpen ? 0 : -1}>
+                <Link to={link.url} onClick={closeMobileNavigation} activeClassName="selected" tabIndex={isMobileNavOpen ? 0 : -1}>
                   {link.text}
                 </Link>
               </li>
