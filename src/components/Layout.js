@@ -9,6 +9,8 @@ import Color from "../components/Color";
 import PageHeader from "../components/PageHeader";
 import PageFooter from "../components/PageFooter";
 
+import { NavigationProvider } from "../context/navigation_context";
+
 const GlobalReset = createGlobalStyle`
  html,
  body,
@@ -78,13 +80,15 @@ const MainContent = styled.main`
 const Layout = ({ children }) => {
   return (
     <>
-      <GlobalReset />
-      <Color />
-      <PageContainer>
-        <PageHeader />
-        <MainContent>{children}</MainContent>
-        <PageFooter />
-      </PageContainer>
+      <NavigationProvider>
+        <GlobalReset />
+        <Color />
+        <PageContainer>
+          <PageHeader />
+          <MainContent>{children}</MainContent>
+          <PageFooter />
+        </PageContainer>
+      </NavigationProvider>
     </>
   );
 };
