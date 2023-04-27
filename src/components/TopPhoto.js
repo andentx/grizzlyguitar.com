@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { StaticImage } from 'gatsby-plugin-image';
+import { StaticImage } from "gatsby-plugin-image";
 
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const TopPhotoContainer = styled.div`
   /* background-color: red; */
@@ -13,7 +13,7 @@ const TopPhoto = () => {
   return (
     <>
       <TopPhotoContainer>
-        <StaticImage src='../images/top-photo.png' alt='A photo of a guitar on a workbench' placeholder='none' />
+        <StaticImage src="../images/top-photo.png" alt="A photo of a guitar on a workbench" placeholder="none" />
       </TopPhotoContainer>
     </>
   );
