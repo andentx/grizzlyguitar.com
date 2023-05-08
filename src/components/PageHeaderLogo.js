@@ -66,8 +66,8 @@ const LogoContainer = styled.div`
 const PageHeaderLogo = () => {
   return (
     <>
-      <StyledLink to='/' aria-label='home' id='headerLogo'>
-        <LogoContainer>Logo</LogoContainer>
+      <StyledLink to="/" aria-label="home" id="headerLogo">
+        <LogoContainer>Grizzly Guitar</LogoContainer>
       </StyledLink>
     </>
   );
