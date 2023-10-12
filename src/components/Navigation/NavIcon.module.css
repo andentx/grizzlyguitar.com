@@ -1,7 +1,7 @@
 .open-icon::before {
-  background-color: var(--nav-menu-open-icon-color);
+  background-color: rgb(255, 255, 255);
 
-  content: '';
+  content: "";
 
   display: block;
 
@@ -13,16 +13,16 @@
 }
 
 .open-icon {
-  background-color: var(--nav-menu-open-icon-color);
+  background-color: rgb(255, 255, 255);
 
   height: 6.4px;
   width: 100%;
 }
 
 .open-icon::after {
-  background-color: var(--nav-menu-open-icon-color);
+  background-color: rgb(255, 255, 255);
 
-  content: '';
+  content: "";
 
   display: block;
 
@@ -34,7 +34,7 @@
 }
 
 .close-icon {
-  background-color: var(--nav-menu-close-icon-color);
+  background-color: rgb(255, 255, 255);
 
   height: 6.4px;
   width: 100%;
@@ -43,9 +43,9 @@
 }
 
 .close-icon::after {
-  background-color: var(--nav-menu-close-icon-color);
+  background-color: rgb(255, 255, 255);
 
-  content: '';
+  content: "";
 
   display: block;
 
