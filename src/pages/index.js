@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import Layout from "../components/Layout";
 
 export const Head = () => (
@@ -16,7 +15,9 @@ const IndexPage = () => {
   return (
     <>
       <Layout>
-        <h2>Coming Soon</h2>
+        <div className="w-full bg-white">
+          <h2>Coming Soon</h2>
+        </div>
       </Layout>
     </>
   );
