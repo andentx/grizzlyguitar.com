@@ -14,8 +14,10 @@ const Global = createGlobalStyle`
  @media screen and (max-width: 700px) {
      html,
      body {
-         max-height: ${({ isMobileNavOpen }) => (isMobileNavOpen ? "100vh" : "none")};
-         overflow-y: ${({ isMobileNavOpen }) => (isMobileNavOpen ? "hidden" : "auto")};
+         max-height: ${({ isMobileNavOpen }) =>
+           isMobileNavOpen ? "100vh" : "none"};
+         overflow-y: ${({ isMobileNavOpen }) =>
+           isMobileNavOpen ? "hidden" : "auto"};
      }
  }
  `;
@@ -206,13 +208,16 @@ const LinkPanel = styled.div`
 `;
 
 const PageNavigation = () => {
-  const { isMobileNavOpen, closeMobileNavigation, openMobileNavigation } = useNavigationContext();
+  const { isMobileNavOpen, closeMobileNavigation, openMobileNavigation } =
+    useNavigationContext();
 
   const bodyElementsRef = useRef(null);
   const bodyElementsSelectorRef = useRef("main *, #headerLogo, footer *");
 
   useEffect(() => {
-    const bodyElements = document.querySelectorAll(bodyElementsSelectorRef.current);
+    const bodyElements = document.querySelectorAll(
+      bodyElementsSelectorRef.current
+    );
     bodyElementsRef.current = bodyElements;
   }, []);
 
@@ -245,7 +250,12 @@ const PageNavigation = () => {
         </ul>
       </DesktopNavigation>
 
-      <MobileNavigationMenuIcon onClick={isMobileNavOpen ? closeMobileNavigation : openMobileNavigation} aria-label={`${isMobileNavOpen ? "close navigation menu" : "open navigation menu"}`}>
+      <MobileNavigationMenuIcon
+        onClick={isMobileNavOpen ? closeMobileNavigation : openMobileNavigation}
+        aria-label={`${
+          isMobileNavOpen ? "close navigation menu" : "open navigation menu"
+        }`}
+      >
         <div className={`${isMobileNavOpen ? closeIcon : openIcon}`}></div>
       </MobileNavigationMenuIcon>
 
@@ -255,7 +265,12 @@ const PageNavigation = () => {
           <ul>
             {navLinks.map((link) => (
               <li key={link.id}>
-                <Link to={link.url} onClick={closeMobileNavigation} activeClassName="selected" tabIndex={isMobileNavOpen ? 0 : -1}>
+                <Link
+                  to={link.url}
+                  onClick={closeMobileNavigation}
+                  activeClassName="selected"
+                  tabIndex={isMobileNavOpen ? 0 : -1}
+                >
                   {link.text}
                 </Link>
               </li>
