@@ -1,40 +1,15 @@
 import * as React from "react";
-
-import styled from "styled-components";
-
 import PageHeaderLogo from "./PageHeaderLogo";
 import PageNavigation from "./Navigation/PageNavigation";
 
-const Header = styled.header`
-  background-color: var(--page-header-background-color);
-
-  height: 4rem;
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const HeaderInnerContent = styled.div`
-  height: 3rem;
-  width: 2000px;
-
-  padding: 0 0.5rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 const PageHeader = () => {
   return (
-    <Header>
-      <HeaderInnerContent>
+    <header className="flex items-center justify-center w-full h-16 bg-gray-800">
+      <div className="flex items-center w-full h-12 px-4 py-0 max-w-7xl">
         <PageHeaderLogo />
         <PageNavigation />
-      </HeaderInnerContent>
-    </Header>
+      </div>
+    </header>
   );
 };
 
