@@ -22,103 +22,6 @@ const Global = createGlobalStyle`
  }
  `;
 
-const DesktopNavigation = styled.nav`
-  height: 100%;
-
-  display: flex;
-  align-items: center;
-
-  ul {
-    height: 100%;
-
-    display: flex;
-    align-items: center;
-
-    li {
-      margin-left: 2px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      line-height: 0.6;
-
-      a {
-        padding: 0.5rem;
-
-        position: relative;
-
-        :focus-visible {
-          outline: none;
-        }
-
-        :focus-visible::before {
-          content: "";
-          position: absolute;
-          top: -2px;
-          right: -2px;
-          bottom: -2px;
-          left: -2px;
-          border: 2px solid var(--focus-color);
-          border-radius: 7.5px;
-        }
-
-        color: var(--text-color);
-        transition: color 200ms;
-      }
-      a:hover {
-        color: var(--text-color-hover);
-      }
-      a:active {
-        color: var(--text-color-hover);
-      }
-      .selected {
-        color: var(--text-color-hover);
-      }
-    }
-  }
-
-  @media screen and (max-width: 700px) {
-    display: none;
-  }
-`;
-
-const MobileNavigationMenuIcon = styled.button`
-  height: 100%;
-  width: 3.5rem;
-  border: none;
-
-  background: transparent;
-  cursor: pointer;
-
-  padding: 0.5rem;
-
-  z-index: 1000;
-
-  padding: 0.5rem;
-
-  position: relative;
-
-  :focus-visible {
-    outline: none;
-  }
-
-  :focus-visible::before {
-    content: "";
-    position: absolute;
-    top: -2px;
-    right: -2px;
-    bottom: -2px;
-    left: -2px;
-    border: 2px solid var(--focus-color);
-    border-radius: 7.5px;
-  }
-
-  @media screen and (min-width: 700px) {
-    display: none;
-  }
-`;
-
 const MobileNavigation = styled.div`
   position: fixed;
   top: 0;
@@ -129,7 +32,7 @@ const MobileNavigation = styled.div`
 
   display: flex;
 
-  z-index: 100;
+  z-index: 40;
 
   transition: transform 300ms;
 
@@ -137,73 +40,6 @@ const MobileNavigation = styled.div`
 
   @media screen and (min-width: 700px) {
     display: none;
-  }
-`;
-
-const ClosePanel = styled.div`
-  height: 100%;
-  width: 30%;
-
-  z-index: 100;
-
-  display: flex;
-`;
-
-const LinkPanel = styled.div`
-  background-color: hsla(0, 0%, 0%, 0.8);
-
-  backdrop-filter: blur(1rem);
-
-  height: 100%;
-  width: 70%;
-
-  z-index: 100;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  ul {
-  }
-
-  li {
-    margin-bottom: 2rem;
-  }
-
-  a {
-    font-size: 2rem;
-    color: var(--text-color);
-
-    padding: 0.5rem;
-
-    position: relative;
-
-    transition: color 200ms;
-
-    :focus-visible {
-      outline: none;
-    }
-
-    :focus-visible::before {
-      content: "";
-      position: absolute;
-      top: -2px;
-      right: -2px;
-      bottom: -2px;
-      left: -2px;
-      border: 2px solid var(--focus-color);
-      border-radius: 7.5px;
-    }
-  }
-  a:hover {
-    color: var(--text-color-hover);
-  }
-  a:active {
-    color: var(--text-color-hover);
-  }
-  .selected {
-    color: var(--text-color-hover);
   }
 `;
 
@@ -238,37 +74,53 @@ const PageNavigation = () => {
     <>
       <Global isMobileNavOpen={isMobileNavOpen} />
 
-      <DesktopNavigation isOpen={isMobileNavOpen}>
-        <ul>
+      <nav className="items-center hidden h-full 700px:flex ">
+        <ul className="flex items-center h-full ">
           {navLinks.map((link) => (
-            <li key={link.id}>
-              <Link to={link.url} activeClassName="selected">
+            <li
+              key={link.id}
+              className="flex items-center justify-center mr-2 text-white rounded-md "
+            >
+              <Link
+                to={link.url}
+                className="p-2 transition-colors ease-in-out rounded-md focus:ring focus:ring-amber-400 focus:outline-none hover:text-amber-400 active:text-amber-500"
+                activeClassName="text-amber-400"
+              >
                 {link.text}
               </Link>
             </li>
           ))}
         </ul>
-      </DesktopNavigation>
+      </nav>
 
-      <MobileNavigationMenuIcon
+      <button
+        className="relative z-50 h-full p-2 bg-transparent border-none rounded-md cursor-pointer w-14 focus:outline-none focus:ring focus:ring-amber-400 700px:hidden"
         onClick={isMobileNavOpen ? closeMobileNavigation : openMobileNavigation}
         aria-label={`${
           isMobileNavOpen ? "close navigation menu" : "open navigation menu"
         }`}
       >
         <div className={`${isMobileNavOpen ? closeIcon : openIcon}`}></div>
-      </MobileNavigationMenuIcon>
+      </button>
 
       <MobileNavigation isOpen={isMobileNavOpen}>
-        <ClosePanel onClick={closeMobileNavigation} />
-        <LinkPanel>
+        <div
+          onClick={closeMobileNavigation}
+          aria-hidden="true"
+          className="z-40 flex h-full w-3/10"
+        />
+        <div className="z-40 flex flex-col items-center justify-center h-full backdrop-blur-lg bg-gray-800/80 w-7/10">
           <ul>
             {navLinks.map((link) => (
-              <li key={link.id}>
+              <li
+                key={link.id}
+                className="mb-8 text-3xl text-white last-of-type:mb-6"
+              >
                 <Link
                   to={link.url}
                   onClick={closeMobileNavigation}
-                  activeClassName="selected"
+                  className="p-2 transition-colors ease-in-out rounded-md focus:ring focus:ring-amber-400 focus:outline-none hover:text-amber-400 active:text-amber-500"
+                  activeClassName="text-amber-400"
                   tabIndex={isMobileNavOpen ? 0 : -1}
                 >
                   {link.text}
@@ -276,7 +128,7 @@ const PageNavigation = () => {
               </li>
             ))}
           </ul>
-        </LinkPanel>
+        </div>
       </MobileNavigation>
     </>
   );
