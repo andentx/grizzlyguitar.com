@@ -22,9 +22,14 @@ module.exports = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-sharp",
     "gatsby-plugin-tailwindcss",
-    "gatsby-transformer-sharp",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-sitemap",
+    {
+      resolve: "gatsby-transformer-sharp",
+      options: {
+        quality: 90,
+      },
+    },
     {
       resolve: "gatsby-plugin-manifest",
       options: {
