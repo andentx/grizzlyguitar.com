@@ -1,0 +1,33 @@
+html,
+body,
+button,
+header,
+main,
+menu,
+nav,
+footer,
+section,
+article,
+pre,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul,
+li,
+a {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-style: none;
+  font-style: normal;
+  font-weight: normal;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
