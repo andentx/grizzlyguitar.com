@@ -62,13 +62,7 @@ const PageContainer = styled.div`
 `;
 
 const MainContent = styled.main`
-  background-color: var(--main-section-background-color);
-  color: var(--text-color);
-
   width: 100%;
-  max-width: 2000px;
-
-  padding-bottom: 15rem;
 
   display: flex;
   flex-direction: column;
