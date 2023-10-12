@@ -21,6 +21,7 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-plugin-postcss",
     "gatsby-plugin-sharp",
+    "gatsby-plugin-tailwindcss",
     "gatsby-transformer-sharp",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-sitemap",
@@ -28,6 +29,14 @@ module.exports = {
       resolve: "gatsby-plugin-manifest",
       options: {
         icon: "src/images/icon.png",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: /svg/,
+        },
       },
     },
     {
