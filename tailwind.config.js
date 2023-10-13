@@ -30,6 +30,17 @@ module.exports = {
       screens: {
         "700px": "700px",
       },
+      fontFamily: {
+        montserratBold: [
+          "Montserrat Bold",
+          "Arial Black",
+          "Arial",
+          "sans-serif",
+        ],
+        montserratRegular: ["Montserrat Regular", "Arial", "sans-serif"],
+        averiaRegular: ["Averia Regular", "Georgia", "serif"],
+        averiaLight: ["Averia Light", "Georgia", "serif"],
+      },
     },
   },
   plugins: [
