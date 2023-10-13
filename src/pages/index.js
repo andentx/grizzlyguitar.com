@@ -3,6 +3,7 @@ import Layout from "../components/Layout";
 import { graphql } from "gatsby";
 import HeroSection from "../components/HeroSection";
 import WhatWeDoSection from "../components/WhatWeDoSection";
+import ViewServicesMenu from "../components/ViewServicesMenu";
 
 export const Head = () => (
   <>
@@ -21,6 +22,7 @@ export default function IndexPage({ data }) {
       <div className="w-full bg-white">
         <HeroSection />
         <WhatWeDoSection whatWeDo={whatWeDo} />
+        <ViewServicesMenu />
       </div>
     </Layout>
   );
