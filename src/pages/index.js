@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import HeroSection from "../components/HeroSection";
 import WhatWeDoSection from "../components/WhatWeDoSection";
 import ViewServicesMenu from "../components/ViewServicesMenu";
+import Appointment from "../components/Appointment";
 
 export const Head = () => (
   <>
@@ -23,6 +24,7 @@ export default function IndexPage({ data }) {
         <HeroSection />
         <WhatWeDoSection whatWeDo={whatWeDo} />
         <ViewServicesMenu />
+        <Appointment />
       </div>
     </Layout>
   );
