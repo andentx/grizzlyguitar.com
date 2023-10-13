@@ -10,3 +10,35 @@ html {
 body {
   background-color: rgb(255, 255, 255);
 }
+
+@font-face {
+  font-family: "Montserrat Bold";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/MontserratBold.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Montserrat Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/MontserratRegular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Averia Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/fonts/AveriaRegular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Averia Light";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(/fonts/AveriaLight.ttf) format("truetype");
+}
