@@ -9,10 +9,13 @@ import Appointment from "../components/Appointment";
 export const Head = () => (
   <>
     <title>Grizzly Guitar</title>
-    <meta name="description" content="Description for Grizzly Guitar." />
+    <meta
+      name="description"
+      content="Your destination for instruments, parts and service guided by one principle - Craftsmanship."
+    />
     <meta name="author" content="Andrew" />
 
-    <meta name="theme-color" content="hsl(0, 0%, 0%)" />
+    <meta name="theme-color" content="rgb(31 41 55)" />
   </>
 );
 

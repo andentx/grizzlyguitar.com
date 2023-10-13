@@ -4,6 +4,18 @@ import Layout from "../components/Layout";
 import ServicesFAQ from "../components/ServicesFAQ";
 import ServicesMenu from "../components/ServicesMenu";
 
+export const Head = () => (
+  <>
+    <title>Grizzly Guitar | Services</title>
+    <meta
+      name="description"
+      content="Your destination for instruments, parts and service guided by one principle - Craftsmanship."
+    />
+    <meta name="author" content="Andrew" />
+    <meta name="theme-color" content="rgb(31 41 55)" />
+  </>
+);
+
 const ServicesPage = ({ data }) => {
   const sections = data.allSanityServicesMenuSection?.edges || [];
 

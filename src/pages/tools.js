@@ -4,6 +4,19 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import parse from "html-react-parser";
 import Layout from "../components/Layout";
 
+export const Head = () => (
+  <>
+    <title>Grizzly Guitar | Tools</title>
+    <meta
+      name="description"
+      content="Your destination for instruments, parts and service guided by one principle - Craftsmanship."
+    />
+    <meta name="author" content="Andrew" />
+
+    <meta name="theme-color" content="rgb(31 41 55)" />
+  </>
+);
+
 const ToolsPage = ({ data }) => {
   const posts = data.allWpPost.nodes;
 

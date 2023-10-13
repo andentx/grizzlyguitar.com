@@ -3,6 +3,18 @@ import { BuildingOffice2Icon, EnvelopeIcon } from "@heroicons/react/24/outline";
 import Layout from "../components/Layout";
 import ContactForm from "../components/ContactForm";
 
+export const Head = () => (
+  <>
+    <title>Grizzly Guitar | Contact</title>
+    <meta
+      name="description"
+      content="Your destination for instruments, parts and service guided by one principle - Craftsmanship."
+    />
+    <meta name="author" content="Andrew" />
+    <meta name="theme-color" content="rgb(31 41 55)" />
+  </>
+);
+
 const ContactPage = () => {
   return (
     <>

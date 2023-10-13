@@ -3,6 +3,18 @@ import { Link } from "gatsby";
 import { ArrowLongLeftIcon } from "@heroicons/react/20/solid";
 import Layout from "../components/Layout";
 
+export const Head = () => (
+  <>
+    <title>Grizzly Guitar | 404 - Page Not Found</title>
+    <meta
+      name="description"
+      content="Your destination for instruments, parts and service guided by one principle - Craftsmanship."
+    />
+    <meta name="author" content="Andrew" />
+    <meta name="theme-color" content="rgb(31 41 55)" />
+  </>
+);
+
 const NotFoundPage = () => {
   return (
     <>

@@ -6,6 +6,18 @@ import ProductsFiltersMenuDesktop from "../../components/ProductsFiltersMenuDesk
 import ProductsFiltersMenuMobile from "../../components/ProductsFiltersMenuMobile";
 import ProductsGrid from "../../components/ProductsGrid";
 
+export const Head = () => (
+  <>
+    <title>Grizzly Guitar | Shop</title>
+    <meta
+      name="description"
+      content="Your destination for instruments, parts and service guided by one principle - Craftsmanship."
+    />
+    <meta name="author" content="Andrew" />
+    <meta name="theme-color" content="rgb(31 41 55)" />
+  </>
+);
+
 export default function ShopPage() {
   return (
     <Layout>

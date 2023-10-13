@@ -5,6 +5,18 @@ import { graphql } from "gatsby";
 import parse from "html-react-parser";
 import Layout from "../components/Layout";
 
+export const Head = () => (
+  <>
+    <title>Grizzly Guitar | Blog</title>
+    <meta
+      name="description"
+      content="Your destination for instruments, parts and service guided by one principle - Craftsmanship."
+    />
+    <meta name="author" content="Andrew" />
+    <meta name="theme-color" content="rgb(31 41 55)" />
+  </>
+);
+
 const BlogPage = ({ data }) => {
   const posts = data.allWpPost.nodes;
 
