@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
-
-import { useNavigationContext } from "../../context/navigation_context";
-
-import { navLinks } from "../../data/navLinks";
-
+import React, { useEffect, useRef } from "react";
 import { Link } from "gatsby";
-
 import styled, { createGlobalStyle } from "styled-components";
-
+import CartButton from "../CartButton";
+import { useNavigationContext } from "../../context/navigation_context";
+import { navLinks } from "../../data/navLinks";
 import { openIcon, closeIcon } from "./NavIcon.module.css";
 
 const Global = createGlobalStyle`
@@ -91,6 +87,7 @@ const PageNavigation = () => {
             </li>
           ))}
         </ul>
+        <CartButton tabIndex={0} />
       </nav>
 
       <button
@@ -128,6 +125,7 @@ const PageNavigation = () => {
               </li>
             ))}
           </ul>
+          <CartButton tabIndex={isMobileNavOpen ? 0 : -1} />
         </div>
       </MobileNavigation>
     </>
