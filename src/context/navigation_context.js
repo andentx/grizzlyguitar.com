@@ -1,15 +1,15 @@
-import React, { useContext, useReducer } from "react";
-import reducer from "../reducers/navigation_reducer";
+import React, { createContext, useContext, useReducer } from "react";
+import navigation_reducer from "../reducers/navigation_reducer";
 import { MOBILE_NAV_OPEN, MOBILE_NAV_CLOSE } from "../actions";
+
+const NavigationContext = createContext();
 
 const initialState = {
   isMobileNavOpen: false,
 };
 
-const NavigationContext = React.createContext();
-
 export const NavigationProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(navigation_reducer, initialState);
 
   const openMobileNavigation = () => {
     dispatch({ type: MOBILE_NAV_OPEN });
