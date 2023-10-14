@@ -11,6 +11,26 @@ export const Head = () => (
       content="Your destination for instruments, parts and service guided by one principle - Craftsmanship."
     />
     <meta name="author" content="Andrew" />
+
+    <meta property="og:title" content="Grizzly Guitar" />
+    <meta
+      property="og:description"
+      content="Your destination for instruments, parts and service guided by one principle - Craftsmanship."
+    />
+    <meta
+      property="og:image"
+      content="https://grizzlyguitar.com/images/og-image.png"
+    />
+    <meta
+      property="og:image:alt"
+      content="A screenshot of the Grizzly Guitar website"
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://grizzlyguitar.com/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+
     <meta name="theme-color" content="rgb(31 41 55)" />
   </>
 );
