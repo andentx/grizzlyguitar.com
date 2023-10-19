@@ -1,49 +1,57 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal Starter
-</h1>
+# Grizzly Guitar Website
 
-## 🚀 Quick start
+View Website - [www.grizzlyguitar.com](https://www.grizzlyguitar.com)
 
-1.  **Create a Gatsby site.**
+<br />
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+![A screenshot of the Grizzly Guitar website](/src/images/readme/website-screenshot.png)
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+<br />
 
-2.  **Start developing.**
+## Description
 
-    Navigate into your new site’s directory and start it up.
+This is a website for [Grizzly Guitar](https://www.grizzlyguitar.com), a boutique guitar service and online store.
+<br />
+<br />
+This project combines many of my interests: Software Engineering, Web Development, Business, Music Gear, and the art of Luthiery - building and repairing stringed musical instruments. I've always dreamed of having my own guitar shop, so when deciding on a project to learn more about building e-commerce websites, a guitar service and online store was the natural choice!
+<br />
+<br />
+My goal with this project is to learn more about different web development tools and technologies, specifically [React](https://react.dev), [Gatsby](https://www.gatsbyjs.com), [GraphQL](https://graphql.org), and [Tailwind](https://tailwindcss.com). I'm also interested in getting more experience with using [Sanity](https://www.sanity.io), [Shopify](https://www.shopify.com), and [Wordpress](https://wordpress.org) as a CMS. Now that I've built a website that features a blog, content stored in Sanity, and E-Commerce functionality, I'm more interested than ever in learning about how to build accessible, high-performance online store experiences with a modern tech stack.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+<br />
 
-3.  **Open the code and start customizing!**
+## Tools used
 
-    Your site is now running at http://localhost:8000!
+- [React](https://react.dev)
+- [Gatsby](https://www.gatsbyjs.com)
+- [GraphQL](https://graphql.org)
+- [Tailwind](https://tailwindcss.com)
+- [Sanity](https://www.sanity.io)
+- [Shopify](https://www.shopify.com)
+- [Wordpress](https://wordpress.org)
+- [Netlify](https://netlify.com)
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+<br />
 
-4.  **Learn more**
+## What's Next
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- Refactor and improve code
+- Improve Sanity Schemas
+- Implement user account functionality
+- Implement search functionality
+- Add more blogs, content, services, products, etc. over time
 
-## 🚀 Quick start (Netlify)
+<br />
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+## Links
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal)
+- [Grizzly Guitar website](https://www.grizzlyguitar.com)
+
+<br />
+
+## Contact
+
+- Grizzly Guitar - [admin@grizzlyguitar.com](mailto:admin@grizzlyguitar.com)
+- Andrew - [andrew@andrewdent.dev](mailto:andrew@andrewdent.dev)
+
+<br />
