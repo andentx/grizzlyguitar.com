@@ -22,7 +22,7 @@ export async function generateMetadata({
         "Your destination for instruments, parts and service guided by one principle - Craftsmanship.",
     },
     alternates: {
-      canonical: `/blog/${resolvedParams.slug}`,
+      canonical: `https://www.grizzlyguitar.com/blog/${resolvedParams.slug}`,
     },
   };
 }

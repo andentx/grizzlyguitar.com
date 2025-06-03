@@ -12,7 +12,7 @@ export const metadata = {
       "Your destination for instruments, parts and service guided by one principle - Craftsmanship.",
   },
   alternates: {
-    canonical: "/tools",
+    canonical: "https://www.grizzlyguitar.com/tools",
   },
 };
 

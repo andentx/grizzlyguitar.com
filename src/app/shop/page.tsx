@@ -8,7 +8,7 @@ export const metadata = {
   description:
     "Your destination for instruments, parts and service guided by one principle - Craftsmanship.",
   alternates: {
-    canonical: "/shop",
+    canonical: "https://www.grizzlyguitar.com/shop",
   },
   openGraph: {
     type: "website",

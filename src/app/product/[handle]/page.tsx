@@ -29,7 +29,7 @@ export async function generateMetadata(props: {
     title: product.seo.title || product.title,
     description: product.seo.description || product.description,
     alternates: {
-      canonical: `/product/${params.handle}`,
+      canonical: `https://www.grizzlyguitar.com/product/${params.handle}`,
     },
     robots: {
       index: indexable,

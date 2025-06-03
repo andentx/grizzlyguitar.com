@@ -15,7 +15,7 @@ export const metadata = {
       "Your destination for instruments, parts and service guided by one principle - Craftsmanship.",
   },
   alternates: {
-    canonical: "/blog",
+    canonical: "https://www.grizzlyguitar.com/blog",
   },
 };
 

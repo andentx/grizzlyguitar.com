@@ -42,7 +42,7 @@ export const metadata = {
     index: true,
   },
   alternates: {
-    canonical: "/",
+    canonical: "https://www.grizzlyguitar.com",
   },
 };
 

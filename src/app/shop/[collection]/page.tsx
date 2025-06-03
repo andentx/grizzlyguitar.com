@@ -21,7 +21,7 @@ export async function generateMetadata(props: {
       collection.description ||
       `${collection.title} products`,
     alternates: {
-      canonical: `/shop/${params.collection}`,
+      canonical: `https://www.grizzlyguitar.com/shop/${params.collection}`,
     },
     openGraph: {
       type: "website",
