@@ -2,7 +2,7 @@ import { ReadonlyURLSearchParams } from "next/navigation";
 
 export const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "https://grizzlyguitar.com"
+    ? "https://www.grizzlyguitar.com"
     : "http://localhost:3000";
 
 export const createUrl = (
