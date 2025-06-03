@@ -6,6 +6,7 @@ import Footer from "@/components/layout/footer";
 export const dynamic = "force-static";
 
 export const metadata = {
+  title: "About",
   description:
     "Your destination for instruments, parts and service guided by one principle - Craftsmanship.",
   openGraph: {

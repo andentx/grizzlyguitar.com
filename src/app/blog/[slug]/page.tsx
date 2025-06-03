@@ -13,11 +13,18 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const resolvedParams = await params;
+  const { data: post } = await sanityFetch<BLOG_POST_QUERYResult>({
+    query: BLOG_POST_QUERY,
+    params: { slug: resolvedParams.slug },
+  });
+
   return {
+    title: post?.title,
     description:
       "Your destination for instruments, parts and service guided by one principle - Craftsmanship.",
     openGraph: {
       type: "website",
+      title: post?.title,
       description:
         "Your destination for instruments, parts and service guided by one principle - Craftsmanship.",
     },

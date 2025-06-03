@@ -5,6 +5,7 @@ import { BuildingOffice2Icon, EnvelopeIcon } from "@heroicons/react/24/outline";
 export const dynamic = "force-static";
 
 export const metadata = {
+  title: "Contact",
   description:
     "Your destination for instruments, parts and service guided by one principle - Craftsmanship.",
   openGraph: {

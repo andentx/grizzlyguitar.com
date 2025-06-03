@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
+  title: "Blog",
   description:
     "Your destination for instruments, parts and service guided by one principle - Craftsmanship.",
   openGraph: {
