@@ -2,8 +2,6 @@ import Footer from "@/components/layout/footer";
 import ServicesFaqSection from "@/components/services/services-faq-section";
 import ServicesSection from "@/components/services/services-section";
 
-export const dynamic = "force-static";
-
 export const metadata = {
   title: "Services",
   description:

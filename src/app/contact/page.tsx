@@ -2,8 +2,6 @@ import ContactForm from "@/components/contact/contact-form";
 import Footer from "@/components/layout/footer";
 import { BuildingOffice2Icon, EnvelopeIcon } from "@heroicons/react/24/outline";
 
-export const dynamic = "force-static";
-
 export const metadata = {
   title: "Contact",
   description:

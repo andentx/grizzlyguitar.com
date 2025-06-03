@@ -1,8 +1,6 @@
 import Footer from "@/components/layout/footer";
 import ToolsLinksSection from "@/components/tools/tools-links-section";
 
-export const dynamic = "force-static";
-
 export const metadata = {
   description:
     "Your destination for instruments, parts and service guided by one principle - Craftsmanship.",
