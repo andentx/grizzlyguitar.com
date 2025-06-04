@@ -3,8 +3,6 @@ import AboutMeSection from "@/components/about/about-me-section";
 import AboutWhatIOfferSection from "@/components/about/about-what-i-offer-section";
 import Footer from "@/components/layout/footer";
 
-export const dynamic = "force-static";
-
 export const metadata = {
   title: "About",
   description:
