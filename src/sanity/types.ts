@@ -620,7 +620,7 @@ export type SERVICES_QUERYResult = Array<{
   }> | null;
 }>;
 // Variable: BLOG_POSTS_QUERY
-// Query: *[_type == "blogPost"] | order(publishedAt desc) {    _id,    title,    slug,    mainImage {      asset->{        url      }    },    publishedAt,    excerpt,    author->{      name,      image {        asset->{          url        }      }    }  }
+// Query: *[_type == "blogPost"] | order(publishedAt asc) {    _id,    title,    slug,    mainImage {      asset->{        url      }    },    publishedAt,    excerpt,    author->{      name,      image {        asset->{          url        }      }    }  }
 export type BLOG_POSTS_QUERYResult = Array<{
   _id: string;
   title: string | null;
@@ -747,7 +747,7 @@ declare module "@sanity/client" {
     '\n  *[_type == "aboutWhatIOffer"] | order(index asc) {\n    _id,\n    index,\n    title,\n    description,\n    url,\n    linkText,\n    image {\n      asset->{\n        url\n      }\n    },\n    imageAltText\n  }\n': ABOUT_WHAT_I_OFFER_QUERYResult;
     '\n  *[_type == "servicesMenuSection"] | order(index asc) {\n    _id,\n    index,\n    title,\n    subtitle,\n    menuItems[]->{\n      _id,\n      title,\n      description,\n    }\n  }\n': SERVICES_MENU_SECTION_QUERYResult;
     '\n  *[_type == "servicesMenuSection"] | order(index asc) {\n    _id,\n    index,\n    title,\n    subtitle,\n    menuItems[]->{\n      _id,\n      title,\n      description,\n      price\n    },\n    images[] {\n      asset->{\n        url\n      },\n      alt\n    }\n  }\n': SERVICES_QUERYResult;
-    '\n  *[_type == "blogPost"] | order(publishedAt desc) {\n    _id,\n    title,\n    slug,\n    mainImage {\n      asset->{\n        url\n      }\n    },\n    publishedAt,\n    excerpt,\n    author->{\n      name,\n      image {\n        asset->{\n          url\n        }\n      }\n    }\n  }\n': BLOG_POSTS_QUERYResult;
+    '\n  *[_type == "blogPost"] | order(publishedAt asc) {\n    _id,\n    title,\n    slug,\n    mainImage {\n      asset->{\n        url\n      }\n    },\n    publishedAt,\n    excerpt,\n    author->{\n      name,\n      image {\n        asset->{\n          url\n        }\n      }\n    }\n  }\n': BLOG_POSTS_QUERYResult;
     '\n  *[_type == "blogPost" && slug.current == $slug][0] {\n    _id,\n    title,\n    slug,\n    mainImage {\n      asset->{\n        url\n      }\n    },\n    publishedAt,\n    excerpt,\n    content,\n    author->{\n      name,\n      image {\n        asset->{\n          url\n        }\n      },\n      bio\n    },\n    "next": *[_type == "blogPost" && publishedAt > ^.publishedAt] | order(publishedAt asc)[0] {\n      title,\n      slug\n    },\n    "previous": *[_type == "blogPost" && publishedAt < ^.publishedAt] | order(publishedAt desc)[0] {\n      title,\n      slug\n    }\n  }\n': BLOG_POST_QUERYResult;
     '\n  *[_type == "landingFeaturedCategories"] {\n    _id,\n    title,\n    image {\n      asset->{\n        url\n      }\n    },\n    imageAltText,\n    url\n  }\n': LANDING_FEATURED_CATEGORIES_QUERYResult;
     '\n  *[_type == "tools"] | order(index asc) {\n    _id,\n    index,\n    title,\n    description,\n    url,\n    linkText,\n    image {\n      asset->{\n        url\n      }\n    },\n    imageAltText\n  }\n': TOOLS_QUERYResult;

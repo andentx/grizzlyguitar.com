@@ -89,7 +89,7 @@ export const SERVICES_QUERY = defineQuery(`
 `);
 
 export const BLOG_POSTS_QUERY = defineQuery(`
-  *[_type == "blogPost"] | order(publishedAt desc) {
+  *[_type == "blogPost"] | order(publishedAt asc) {
     _id,
     title,
     slug,
