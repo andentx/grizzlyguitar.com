@@ -28,12 +28,20 @@ export default function LandingHero() {
           Your destination for instruments, parts and service guided by one
           principle - Craftsmanship.
         </p>
-        <Link
-          href="/services"
-          className="inline-block rounded-md border border-transparent bg-gray-800 px-8 py-3 text-base font-medium text-white shadow hover:text-amber-400"
-        >
-          View services menu
-        </Link>
+        <div className="flex flex-col gap-4 sm:flex-row">
+          <Link
+            href="/services"
+            className="inline-block rounded-md border border-transparent bg-gray-600 px-8 py-3 text-base font-medium text-white shadow hover:text-amber-400"
+          >
+            View Services
+          </Link>
+          <Link
+            href="/shop"
+            className="inline-block rounded-md border border-transparent bg-gray-800 px-8 py-3 text-base font-medium text-white shadow hover:text-amber-400"
+          >
+            View Shop
+          </Link>
+        </div>
       </div>
     </div>
   );
